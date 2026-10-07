@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reto Date</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Shrikhand&family=Caveat:wght@500;700&family=Nunito:wght@400;600;800&display=swap">
+<style>
+/* Layout: one scrapbook sheet — torn ransom-letter title, taped polaroid notes, a lined "nota" card. Single warm-paper look, matching the printed lámina. */
+:root {
+  color-scheme: light;
+  --paper: #fbf7ef;
+  --sheet: #ffffff;
+  --ink: #3b2a22;
+  --muted: #7a6458;
+  --mustard: #e8b84a;
+  --berry: #a8327a;
+  --plum: #7c3a96;
+  --cocoa: #6f4f38;
+  --peach: #ecc3ab;
+  --pumpkin: #e07a2e;
+  --line: #e6d8cc;
+  --tape-a: rgba(176, 196, 232, .75);
+  --tape-b: rgba(214, 170, 200, .75);
+  --tape-c: rgba(176, 210, 170, .75);
+  --display: "Abril Fatface", Georgia, serif;
+  --fat: "Shrikhand", "Abril Fatface", Georgia, serif;
+  --hand: "Caveat", "Comic Sans MS", cursive;
+  --body: "Nunito", "Segoe UI", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper);
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(232,184,74,.10), transparent 40%),
+    radial-gradient(circle at 90% 70%, rgba(168,50,122,.07), transparent 45%);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  padding-inline: 16px;
+  padding-block: 28px 48px;
+}
+main { max-width: 34rem; margin: 0 auto; display: grid; gap: 30px; }
+
+/* Ransom-note title */
+.title { display: flex; flex-wrap: wrap; gap: 4px 2px; justify-content: center; padding-top: 6px; }
+.title span {
+  display: inline-block; padding: 2px 9px 6px; font-size: clamp(2.3rem, 11vw, 3.4rem); line-height: 1;
+  box-shadow: 1px 2px 0 rgba(59,42,34,.15);
+}
+.title span:nth-child(1) { background: var(--mustard); color: var(--berry); font-family: var(--display); transform: rotate(-4deg); }
+.title span:nth-child(2) { background: var(--berry); color: var(--sheet); font-family: var(--fat); transform: rotate(3deg); }
+.title span:nth-child(3) { background: var(--sheet); color: var(--cocoa); font-family: var(--display); transform: rotate(-2deg); border: 1px solid var(--line); }
+.title span:nth-child(4) { background: var(--cocoa); color: var(--mustard); font-family: var(--fat); transform: rotate(5deg); }
+.title span:nth-child(5) { background: var(--plum); color: var(--sheet); font-family: var(--display); transform: rotate(-3deg); }
+.title span:nth-child(6) { background: var(--mustard); color: var(--plum); font-family: var(--fat); transform: rotate(2deg); }
+.sub { text-align: center; display: grid; gap: 4px; justify-items: center; }
+.sub .pill {
+  background: var(--peach); color: var(--cocoa); font-family: var(--fat); font-size: 1.05rem;
+  padding: 3px 16px; transform: rotate(-1.5deg); letter-spacing: .04em;
+}
+.sub p { margin: 6px 0 0; font-family: var(--hand); font-size: 1.6rem; line-height: 1.2; color: var(--ink); text-wrap: balance; }
+
+/* Rule card */
+.rule {
+  position: relative; background: var(--sheet); padding: 26px 22px 20px;
+  box-shadow: 0 6px 18px rgba(59,42,34,.12); transform: rotate(.8deg);
+  border-left: 6px solid var(--pumpkin);
+}
+.rule h2 { margin: 0 0 6px; font-family: var(--hand); font-size: 1.9rem; line-height: 1; color: var(--pumpkin); }
+.rule p { margin: 0; }
+.rule strong { color: var(--berry); }
+
+/* Polaroid notes */
+.card {
+  position: relative; background: var(--sheet); padding: 30px 20px 22px;
+  box-shadow: 0 8px 22px rgba(59,42,34,.14);
+  display: grid; gap: 12px;
+}
+.card:nth-of-type(odd) { transform: rotate(-1deg); }
+.card:nth-of-type(even) { transform: rotate(1deg); }
+.tape {
+  position: absolute; top: -12px; left: 50%; width: 120px; height: 26px; margin-left: -60px;
+  transform: rotate(-3deg);
+}
+.t1 { background: var(--tape-a); }
+.t2 { background: var(--tape-b); transform: rotate(2deg); }
+.t3 { background: var(--tape-c); transform: rotate(-1deg); }
+.card .kicker { font-family: var(--body); font-weight: 800; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.card h3 { margin: -6px 0 0; font-family: var(--display); font-weight: 400; font-size: 1.75rem; line-height: 1.15; color: var(--ink); text-wrap: balance; }
+.card p { margin: 0; }
+.alt {
+  border-top: 2px dashed var(--line); padding-top: 12px; display: grid; gap: 6px;
+}
+.alt .lbl { font-family: var(--hand); font-size: 1.35rem; color: var(--plum); line-height: 1; }
+.alt ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 4px; color: var(--muted); font-size: .97rem; }
+.alt li strong { color: var(--ink); }
+
+/* Note */
+.note {
+  background: var(--sheet);
+  background-image: repeating-linear-gradient(to bottom, transparent 0 33px, var(--line) 33px 34px);
+  padding: 18px 22px 22px; border: 1px solid var(--line);
+  font-family: var(--hand); font-size: 1.45rem; line-height: 34px; color: var(--cocoa);
+}
+.note p { margin: 0; }
+.sign { text-align: right; color: var(--berry); }
+.heart { color: var(--berry); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .title span { animation: drop .5s cubic-bezier(.3,1.4,.6,1) both; }
+  .title span:nth-child(2) { animation-delay: .06s } .title span:nth-child(3) { animation-delay: .12s }
+  .title span:nth-child(4) { animation-delay: .18s } .title span:nth-child(5) { animation-delay: .24s }
+  .title span:nth-child(6) { animation-delay: .30s }
+  @keyframes drop { from { translate: 0 -14px; } to { translate: 0 0; } }
+}
+.diva { border-left-color: var(--berry); transform: rotate(-.8deg); }
+.diva h2 { color: var(--berry); }
+.diva p + p { margin-top: 10px; }
+.dress { font-family: var(--hand); font-size: 1.6rem; color: var(--plum); line-height: 1.1; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="title" aria-label="Date">
+      <span>D</span><span>a</span><span>t</span><span>e</span>
+    </div>
+    <div class="sub">
+      <span class="pill">reto · copenhague 2026</span>
+      <p>Tienes una invitación a cenar en un sitio muy top… pero primero hay que ganársela.</p>
+    </div>
+  </header>
+
+  <section class="rule">
+    <h2>Cómo funciona</h2>
+    <p>Supera las <strong>tres pruebas</strong> y la invitación es tuya. Si fallas alguna, tienes una segunda oportunidad (porque soy así de bueno).</p>
+  </section>
+
+  <article class="card">
+    <div class="tape t1"></div>
+    <span class="kicker">Prueba 1</span>
+    <h3>Pide en danés</h3>
+    <p>Entra en una cafetería o panadería y pide algo <strong>solo en danés</strong>, sin pasarte al inglés. Por ejemplo: <em>«En kaffe, tak»</em> (un café, por favor). Si además te sale un <em>«tak!»</em> al irte, nota extra.</p>
+  </article>
+
+  <article class="card">
+    <div class="tape t2"></div>
+    <span class="kicker">Prueba 2</span>
+    <h3>Encuentra el rincón más hygge</h3>
+    <p>Busca el sitio más acogedor que veas en Copenhague: velas, mantas, luz cálida, un buen café o un dulce. Me tienes que convencer de que es el más hygge de la ciudad.</p>
+  </article>
+
+  <article class="card">
+    <div class="tape t3"></div>
+    <span class="kicker">Prueba 3</span>
+    <h3>Prueba algo muy danés</h3>
+    <p>Come algo típico que no hayas probado nunca: un <strong>smørrebrød</strong> (la tostada danesa), un <strong>kanelsnegl</strong> (rollo de canela) o lo que te parezca más danés del menú. Y me lo tienes que puntuar del 1 al 10.</p>
+  </article>
+
+  <section class="rule diva">
+    <h2>Si lo consigues…</h2>
+    <p>Esa noche te toca sacar <strong>tus mejores galas</strong> y creerte una auténtica <strong>diva danesa</strong>, porque el sitio va a estar a la altura.</p>
+    <p class="dress">Dress code: diva danesa ✦</p>
+  </section>
+
+  <section class="note">
+    <p>La foto para la polaroid: los dos ya arreglados, con pose de diva y un <em>«skål!»</em> (¡salud!) con las copas.</p>
+    <p class="sign">¡A por ello! <span class="heart">♥</span></p>
+  </section>
+</main>
+</body>
+</html>
