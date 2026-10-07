@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reto Original</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Shrikhand&family=Caveat:wght@500;700&family=Nunito:wght@400;600;800&display=swap">
+<style>
+/* Layout: one scrapbook sheet — torn ransom-letter title, taped polaroid notes, a lined "nota" card. Single warm-paper look, matching the printed lámina. */
+:root {
+  color-scheme: light;
+  --paper: #fbf7ef;
+  --sheet: #ffffff;
+  --ink: #3b2a22;
+  --muted: #7a6458;
+  --mustard: #e8b84a;
+  --berry: #a8327a;
+  --plum: #7c3a96;
+  --cocoa: #6f4f38;
+  --peach: #ecc3ab;
+  --pumpkin: #e07a2e;
+  --line: #e6d8cc;
+  --tape-a: rgba(176, 196, 232, .75);
+  --tape-b: rgba(214, 170, 200, .75);
+  --tape-c: rgba(176, 210, 170, .75);
+  --display: "Abril Fatface", Georgia, serif;
+  --fat: "Shrikhand", "Abril Fatface", Georgia, serif;
+  --hand: "Caveat", "Comic Sans MS", cursive;
+  --body: "Nunito", "Segoe UI", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper);
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(232,184,74,.10), transparent 40%),
+    radial-gradient(circle at 90% 70%, rgba(168,50,122,.07), transparent 45%);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  padding-inline: 16px;
+  padding-block: 28px 48px;
+}
+main { max-width: 34rem; margin: 0 auto; display: grid; gap: 30px; }
+
+/* Ransom-note title */
+.title { display: flex; flex-wrap: wrap; gap: 4px 2px; justify-content: center; padding-top: 6px; }
+.title span {
+  display: inline-block; padding: 2px 9px 6px; font-size: clamp(2.3rem, 11vw, 3.4rem); line-height: 1;
+  box-shadow: 1px 2px 0 rgba(59,42,34,.15);
+}
+.title span:nth-child(1) { background: var(--mustard); color: var(--berry); font-family: var(--display); transform: rotate(-4deg); }
+.title span:nth-child(2) { background: var(--berry); color: var(--sheet); font-family: var(--fat); transform: rotate(3deg); }
+.title span:nth-child(3) { background: var(--sheet); color: var(--cocoa); font-family: var(--display); transform: rotate(-2deg); border: 1px solid var(--line); }
+.title span:nth-child(4) { background: var(--cocoa); color: var(--mustard); font-family: var(--fat); transform: rotate(5deg); }
+.title span:nth-child(5) { background: var(--plum); color: var(--sheet); font-family: var(--display); transform: rotate(-3deg); }
+.title span:nth-child(6) { background: var(--mustard); color: var(--plum); font-family: var(--fat); transform: rotate(2deg); }
+.sub { text-align: center; display: grid; gap: 4px; justify-items: center; }
+.sub .pill {
+  background: var(--peach); color: var(--cocoa); font-family: var(--fat); font-size: 1.05rem;
+  padding: 3px 16px; transform: rotate(-1.5deg); letter-spacing: .04em;
+}
+.sub p { margin: 6px 0 0; font-family: var(--hand); font-size: 1.6rem; line-height: 1.2; color: var(--ink); text-wrap: balance; }
+
+/* Rule card */
+.rule {
+  position: relative; background: var(--sheet); padding: 26px 22px 20px;
+  box-shadow: 0 6px 18px rgba(59,42,34,.12); transform: rotate(.8deg);
+  border-left: 6px solid var(--pumpkin);
+}
+.rule h2 { margin: 0 0 6px; font-family: var(--hand); font-size: 1.9rem; line-height: 1; color: var(--pumpkin); }
+.rule p { margin: 0; }
+.rule strong { color: var(--berry); }
+
+/* Polaroid notes */
+.card {
+  position: relative; background: var(--sheet); padding: 30px 20px 22px;
+  box-shadow: 0 8px 22px rgba(59,42,34,.14);
+  display: grid; gap: 12px;
+}
+.card:nth-of-type(odd) { transform: rotate(-1deg); }
+.card:nth-of-type(even) { transform: rotate(1deg); }
+.tape {
+  position: absolute; top: -12px; left: 50%; width: 120px; height: 26px; margin-left: -60px;
+  transform: rotate(-3deg);
+}
+.t1 { background: var(--tape-a); }
+.t2 { background: var(--tape-b); transform: rotate(2deg); }
+.t3 { background: var(--tape-c); transform: rotate(-1deg); }
+.card .kicker { font-family: var(--body); font-weight: 800; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.card h3 { margin: -6px 0 0; font-family: var(--display); font-weight: 400; font-size: 1.75rem; line-height: 1.15; color: var(--ink); text-wrap: balance; }
+.card p { margin: 0; }
+.alt {
+  border-top: 2px dashed var(--line); padding-top: 12px; display: grid; gap: 6px;
+}
+.alt .lbl { font-family: var(--hand); font-size: 1.35rem; color: var(--plum); line-height: 1; }
+.alt ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 4px; color: var(--muted); font-size: .97rem; }
+.alt li strong { color: var(--ink); }
+
+/* Note */
+.note {
+  background: var(--sheet);
+  background-image: repeating-linear-gradient(to bottom, transparent 0 33px, var(--line) 33px 34px);
+  padding: 18px 22px 22px; border: 1px solid var(--line);
+  font-family: var(--hand); font-size: 1.45rem; line-height: 34px; color: var(--cocoa);
+}
+.note p { margin: 0; }
+.sign { text-align: right; color: var(--berry); }
+.heart { color: var(--berry); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .title span { animation: drop .5s cubic-bezier(.3,1.4,.6,1) both; }
+  .title span:nth-child(2) { animation-delay: .06s } .title span:nth-child(3) { animation-delay: .12s }
+  .title span:nth-child(4) { animation-delay: .18s } .title span:nth-child(5) { animation-delay: .24s }
+  .title span:nth-child(6) { animation-delay: .30s }
+  @keyframes drop { from { translate: 0 -14px; } to { translate: 0 0; } }
+}
+.title span:nth-child(7) { background: var(--peach); color: var(--berry); font-family: var(--fat); transform: rotate(-4deg); }
+.title span:nth-child(8) { background: var(--berry); color: var(--mustard); font-family: var(--display); transform: rotate(3deg); }
+.title span { font-size: clamp(2rem, 9vw, 3.2rem); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="title" aria-label="Original">
+      <span>O</span><span>r</span><span>i</span><span>g</span><span>i</span><span>n</span><span>a</span><span>l</span>
+    </div>
+    <div class="sub">
+      <span class="pill">reto · copenhague 2026</span>
+      <p>En Copenhague la bici es la reina de la calle… hoy te toca ser una danesa más 🚲</p>
+    </div>
+  </header>
+
+  <section class="rule">
+    <h2>La norma</h2>
+    <p>Hoy nos movemos <strong>en bici</strong>, como auténticos daneses. Y todas las fotos tienen que tener una bici dentro y ser <strong>originales</strong>: nada de posar quieta y sonreír, se busca creatividad.</p>
+  </section>
+
+  <article class="card">
+    <div class="tape t1"></div>
+    <span class="kicker">Misión 1</span>
+    <h3>El puente del beso</h3>
+    <p>Cruza en bici el <strong>Inderhavnsbroen</strong>, el puente que une Nyhavn con Christianshavn. Los daneses lo llaman <em>Kyssebroen</em>, el puente del beso, porque sus dos mitades se juntan en el centro. Ya te imaginas lo que toca en la foto.</p>
+  </article>
+
+  <article class="card">
+    <div class="tape t2"></div>
+    <span class="kicker">Misión 2</span>
+    <h3>Súbete a una ladcykel</h3>
+    <p>La <strong>ladcykel</strong> es la bici de carga con un cajón delante, en la que los daneses llevan a sus hijos, la compra o al perro. Consigue una foto montada en una: pedaleando, dentro del cajón o como se te ocurra.</p>
+  </article>
+
+  <article class="card">
+    <div class="tape t3"></div>
+    <span class="kicker">Misión 3</span>
+    <h3>La foto más original</h3>
+    <p>Tema libre, con una sola condición: tiene que salir una bici y tiene que ser la foto más original del viaje. Ideas, por si te atascas:</p>
+    <div class="alt">
+      <span class="lbl">por ejemplo…</span>
+      <ul>
+        <li>Perdida en un <strong>mar de bicis</strong> aparcadas, como las de la estación de Nørreport.</li>
+        <li>Pedaleando por la <strong>Cykelslangen</strong>, la "serpiente" naranja: un puente solo para bicis que va en curva sobre el agua.</li>
+        <li>Haciendo la señal danesa de <strong>parar</strong>: la mano levantada, como los ciclistas de aquí.</li>
+      </ul>
+    </div>
+  </article>
+
+  <section class="note">
+    <p>De todas, elegiremos juntos la más original para el hueco de esta polaroid.</p>
+    <p class="sign">¡A pedalear! <span class="heart">♥</span></p>
+  </section>
+</main>
+</body>
+</html>
